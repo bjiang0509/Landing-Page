@@ -2,12 +2,20 @@
 
 ## Table of Contents
 
-* [Instructions](#instructions)
+* [Author](#author)
+* [Specifications](#specifications)
 
-## Instructions
+## Author
 
-The starter project has some HTML and CSS styling to display a static version of the Landing Page project. You'll need to convert this project from a static project to an interactive one. This will require modifying the HTML and CSS files, but primarily the JavaScript file.
+This project is created by Bijun Jiang on Dec 31, 2021.
 
-To get started, open `js/app.js` and start building out the app's functionality
+## Specifications
 
-For specific, detailed instructions, look at the project instructions in the Udacity Classroom.
+This project converted a static Landing page to an interactive one with the following functionalities.
+- dynamically added navigation bar
+- the navigation bar allows horizontal scroll when all sections does not fit in one row
+- smoothly scrolls to the indicated page when navigation bar is clicked
+- hide navigation bar when not scrolling
+- the section being viewed is emphasized
+- all sections are collapsible
+- scroll to top button is available when the user is not at the top of the page
