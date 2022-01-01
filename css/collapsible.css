@@ -1,0 +1,17 @@
+.landing__container > h2{
+    cursor: pointer;
+}
+
+.hide-content{
+    display: none;
+}
+
+#to-top-button{
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    margin-bottom: 5px;
+    margin-right: 5px;
+    border-radius: 10px;
+}
+  
