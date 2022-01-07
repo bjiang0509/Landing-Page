@@ -52,17 +52,19 @@ let setActive = () => {
     /* set active state */
     nav.classList.add('navbar__menu');
     nav.classList.remove('hide-content');
-    const windowInnerHeight = innerHeight;
-    let sectionStart = listOfSections[0];
+    let activeSect = listOfSections[0];
     for(const section of listOfSections){
-        const rect = section.getBoundingClientRect();
-        const distanceRelativeTop = Math.abs(rect.top);
-        if(rect.top < windowInnerHeight){
-            sectionStart = section;
+        let rect = section.getBoundingClientRect();
+        if(rect.top <= 150 && rect.bottom >= 150){
+            section.classList.add('your-active-class');
+            activeSect = section;
         }
-        sectionStart.classList.remove('your-active-class');
     }
-    sectionStart.classList.add('your-active-class');
+    for(const section of listOfSections){
+        if(activeSect !== section){
+            section.classList.remove('your-active-class');
+        }
+    }
 }
 
 /* event listener functions */
@@ -76,11 +78,13 @@ let scrollHandle = (event) => {
 
 let collapseHandle = (event) => {
     const paragraphContent = document.querySelector(`#${event.currentTarget.id}-content`);
+    const section = document.querySelector(`#${event.currentTarget.id}`);
     paragraphContent.classList.toggle('hide-content');
+    section.classList.toggle('min-height');
+    
 }
 
 let scrollToTop = (event) => {
-    //scroll to top of page smoothly
     window.scrollTo({
         top: 0,
         left: 0,
@@ -88,22 +92,19 @@ let scrollToTop = (event) => {
       });
 }
 
-/* call createNav to build my navigation bar*/
+/* call createNav to build navigation bar*/
 createNav();
 
-//event listener for collapsible
+//event listeners
 listOfSections.forEach((section) => {
     section.addEventListener('click', collapseHandle, false);
 })
 
-//event listener for scroll to link clicked
 const listOfAnchors = document.querySelectorAll('a');
 listOfAnchors.forEach((anchor) => {
     anchor.addEventListener('click', scrollHandle , false);
 });
 
-//event listen to set active state
 document.addEventListener('scroll', setActive, false);
 
-//event listener to scroll to top when button clicked
 button.addEventListener('click', scrollToTop, false);

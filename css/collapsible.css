@@ -14,4 +14,8 @@
     margin-right: 5px;
     border-radius: 10px;
 }
+
+.min-height{
+    min-height: 80vh;
+}
   
